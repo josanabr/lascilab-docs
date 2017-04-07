@@ -24,12 +24,12 @@ FROM octaveimage
 MAINTAINER John Sanabria
 RUN apt-get update
 RUN apt-get -y install octave-image
-
 ```
 
 Para llevar a cabo la creacion del contenedor se ejecuta el comando
 
-```docker build -t octaveimage .
+```
+docker build -t octaveimage .
 ```
 
 
@@ -42,7 +42,8 @@ En este caso el repositorio se conoce como *registry* en el contexto de Docker.
 Antes de hacer el proceso de subir el contenedor es necesario ponerle una marca en la cual se indica explicitamente el nombre o IP del *registry* donde va a ser publicado.
 A continuacion se pone una marca sobre el contenedor creado anteriormente
 
-```docker tag octaveimage 192.168.28.50:5000/octaveimage/uv
+```
+docker tag octaveimage 192.168.28.50:5000/octaveimage/uv
 ```
 
 Para poner la marca a un contenedor se usa el subcomando `tag` de Docker.
@@ -55,7 +56,8 @@ se indica el IP y el puerto del servidor registry, acompanado de su nombre
 Una vez creado el contenedor es hora de hacer uso de el. 
 El comando para ejecutar un contenedor es:
 
-```docker run --rm -ti -v $(pwd):/source octaveimage /usr/bin/env octave /source/x.octave
+```
+docker run --rm -ti -v $(pwd):/source octaveimage /usr/bin/env octave /source/x.octave
 ``` 
 
 A continuacion se describira, en forma de lista, los argumentos del comando `docker`
@@ -92,7 +94,6 @@ este es el archivo de submission de la tarea:
 
 ```
 universe 	= docker
-
 docker_image	= 192.168.28.50:5000/demooctave/uv
 executable 	= /bin/bash
 arguments	= demooctave.sh 	
