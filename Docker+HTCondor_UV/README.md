@@ -11,7 +11,8 @@ Los pasos para gestionar y usar contenedores son los siguientes:
 * Creacion de contenedores
 * Subir contenedor a *registry*
 * Uso de contenedores
-  - Uso de contenedores desde HTCondor
+  - Local
+  - con HTCondor
 
 ## Creacion de contenedores
 
@@ -52,7 +53,8 @@ se indica el IP y el puerto del servidor registry, acompanado de su nombre
 `octaveimage/uv`.
 
 
-## Uso de contenedores
+## Uso de contenedores
+
 ### Local
 
 
