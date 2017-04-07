@@ -1,4 +1,4 @@
-# Docker - Univalle
+# Docker + HTCondor - Univalle
 
 ## Resumen
 
@@ -9,7 +9,7 @@ Valle.
 Los pasos para gestionar y usar contenedores son los siguientes:
 
 * Creacion de contenedores
-* Distribuir contenedores
+* Subir contenedor a *registry*
 * Uso de contenedores
   - Uso de contenedores desde HTCondor
 
@@ -51,7 +51,10 @@ Luego se indica el nombre del contenedor a marcar (`octaveimage`) y finalmente
 se indica el IP y el puerto del servidor registry, acompanado de su nombre
 `octaveimage/uv`.
 
-## Usando el contenedor recien creado
+
+## Uso de contenedores
+### Local
+
 
 Una vez creado el contenedor es hora de hacer uso de el. 
 El comando para ejecutar un contenedor es:
@@ -85,7 +88,7 @@ Using the previous container
 docker run --rm -ti -v $(pwd):/source demooctave /usr/bin/env octave -qf /source/graphic.octave 10 /source/demo
 -->
 
-## Usando HTCondor para procesar tareas basadas en contenedores
+###  Con HTCondor
 
 HTCondor es una herramienta de software que permite la ejecucion de tareas (desatendidas o no interactivas) en un ambiente de computacion oportunista.
 
