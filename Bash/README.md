@@ -110,6 +110,10 @@ Los 'loops' permiten iterar sobre una serie de valores,
 
 Este codigo imprimira por pantalla los valores que reciba la variable `i`.
 
+Para iterar sobre un rango de valores
+
+	# for i in $(seq 1 $END); do echo $i; done
+
 Se puede iterar tambien sobre la salida de un comando
 
 	# for i in $( ls -a ); do 
