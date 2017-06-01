@@ -52,6 +52,13 @@ Luego se indica el nombre del contenedor a marcar (`octaveimage`) y finalmente
 se indica el IP y el puerto del servidor registry, acompanado de su nombre
 `octaveimage/uv`.
 
+Una vez se ha hecho la marca sobre la imagen del contenedor se procede a subir 
+la imagen al registry local.
+
+```
+docker push 192.168.28.50:5000/octaveimage/uv
+```
+
 
 ## Uso de contenedores
 
