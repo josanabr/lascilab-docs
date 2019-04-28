@@ -103,7 +103,7 @@ HTCondor es una herramienta de software que permite la ejecucion de tareas (desa
 
 Asumiendo que se desea enviar la ejecucion del script visto en la [sección anterior](#local) se deben generar los siguientes archivos de texto.
 
-* Script que ejecuta el script `fitting.m`. A este archivo asígnele el nombre `fitting.sh`.
+* Script que ejecuta el script `fitting.m`. A este archivo asígnele el nombre [`fitting.sh`](fitting.sh).
 
 ```
 #!/bin/bash
