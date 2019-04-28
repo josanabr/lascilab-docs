@@ -96,27 +96,12 @@ y =
    0.94560
 ```
 
-<!--
-Corriendo un script en Octave pasando argumentos
-------
-docker run --rm -ti -v $(pwd):/source octave /usr/bin/env octave /source/x.octave "hello world" (2)
-
-Reusing a container to build other
-------
-demooctave/Dockerfile
-docker build -t demooctave .
-
-Using the previous container
-------
-docker run --rm -ti -v $(pwd):/source demooctave /usr/bin/env octave -qf /source/graphic.octave 10 /source/demo
--->
 
 ###  Con HTCondor
 
 HTCondor es una herramienta de software que permite la ejecucion de tareas (desatendidas o no interactivas) en un ambiente de computacion oportunista.
 
-Asumiendo que se desea enviar la ejecucion de una tarea con Docker y HTCondor,
-este es el archivo de submission de la tarea:
+Asumiendo que se desea enviar la ejecucion del script visto en la [sección anterior](#local) se deben generar los siguientes archivos de texto.
 
 ```
 universe 	= docker
