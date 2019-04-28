@@ -10,7 +10,7 @@ Valle.
 
 De hace un par de años para atrás en el cluster de la Universidad del Valle no se volvió a instalar software en los nodos de procesamiento del cluster.
 La razón por la cual no se volvió a instalar software es por la gran cantidad de conflictos que los nuevos paquetes de software generaban y entonces dificultaban la normal operación de diferentes herramientas y aplicaciones que se usan por los académicos de la Universidad. 
-Para eliminar estos conflictos en el software se pensó en los contenedores ya que estos ofrecen una solución tecnológica donde se "empaquetan" aplicaciones en un "archivo" y en dicho "archivo" se encuentran todas las librerías, dependencias y scripts necesarios para la operación normal de la aplicaciones usadas por los investigadores..
+Para eliminar estos conflictos en el software se pensó en los contenedores ya que estos ofrecen una solución tecnológica donde se "empaquetan" aplicaciones en un "archivo" y en dicho "archivo" se encuentran todas las librerías, dependencias y scripts necesarios para la operación normal de la aplicaciones usadas por los investigadores.
 
 Una de las tecnologías más populares en el mundo de los contenedores es Docker.
 En Univalle usamos esta herramienta para llevar a cabo la ejecución de las aplicaciones científicas requeridas por los investigadores de la Universidad del Valle.
@@ -31,29 +31,21 @@ Para este ejemplo se usará el contenedor de Octave que se encuentra en este [en
 
 En caso que la aplicación que usted requiere no se encuentra disponible en **Docker Hub** es una buena noticia porque podrá usted contribuir a la comunidad de Docker con un nuevo contenedor.
 Existen muchos tutoriales de como llevar a cabo la creación de un nuevo contenedor o imagen de Docker. 
-[Aquí](https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/) usted podrá encontrar un tutorial de como hacerlo pero seguro si busca en **Google** podrá encontrar muchos sitios más.
+[Aquí](https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/) usted podrá encontrar un tutorial de como hacerlo pero seguro si busca en **Google** podrá encontrar muchos otros tutoriales.
 
 ## Uso de contenedores
 
 ### Local
 
-
-Una vez creado el contenedor es hora de hacer uso de el. 
-El comando para ejecutar un contenedor es:
+Para efectos de la demostración usaremos un script en Octave muy sencillo y lo único que hace es una serie de operaciones sobre unos vectores. 
+A continuación se presenta el código del script llamado [`fitting.m`](fitting.m)
 
 ```
-docker run --rm -ti -v $(pwd):/source octaveimage /usr/bin/env octave /source/x.octave
-``` 
-
-A continuacion se describira, en forma de lista, los argumentos del comando `docker`
-
-* `run` es el subomcando que permite la ejecucion de contenedores
-* `--rm` indica que una vez se termine la ejecucion del contenedor se borre cualquier rastro de el
-* `-ti`
-* `-v $(pwd):/source` indica que el contenedor podra acceder al directorio desde donde se ejecuto el contenedor a traves del directorio `/source` dentro del contenedor
-* `octaveimage` el nombre del contenedor que se va a ejecutar
-* `/usr/bin/env octave /source/x.octave` es la linea de comandos que se espera ejecutar dentro del contenedor. Observe que se ejecutara un script en octave 
-llamado `x.octave` y que se debe localizar en el directorio desde donde se lanza la ejecucion de este contenedor
+npts = 4
+x = [ 1:npts ]'/npts
+y = x + 0.1 * sin(10. * x)
+disp(y)
+```
 
 <!--
 Corriendo un script en Octave pasando argumentos
