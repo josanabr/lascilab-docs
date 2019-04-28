@@ -37,9 +37,50 @@ Octave es un clon de MATLAB&copy; de código abierto y libre distribución.
 Esto quiere decir que muchos de los scripts escritos para MATLAB&copy; funcionarán en Octave excepto que el script de MATLAB haga uso de algún tipo particular de *toolbox* no disponible en Octave.
 Para este ejemplo se usará el contenedor de Octave que se encuentra en este [enlace](https://hub.docker.com/r/schickling/octave/).
 
-En caso que la aplicación que usted requiere no se encuentra disponible en **Docker Hub** es una buena noticia porque podrá usted contribuir a la comunidad de Docker con un nuevo contenedor.
-Existen muchos tutoriales de como llevar a cabo la creación de un nuevo contenedor o imagen de Docker. 
-[Aquí](https://www.howtoforge.com/tutorial/how-to-create-docker-images-with-dockerfile/) usted podrá encontrar un tutorial de como hacerlo pero seguro si busca en **Google** podrá encontrar muchos sitios más.
+Para la creación de imágenes de contenedores  existen muchos 
+La forma como se sugiere hacer la creacion de contenedores es a traves de un 
+Dockerfile como el que se presenta a continuacion:
+
+```
+FROM octaveimage
+
+MAINTAINER John Sanabria
+RUN apt-get update
+RUN apt-get -y install octave-image
+```
+
+Para llevar a cabo la creacion del contenedor se ejecuta el comando
+
+```
+docker build -t octaveimage .
+```
+
+
+## Subir contenedor a registry
+
+El termino 'Subir contenedor' hace referencia al publicar un contenedor en un
+repositorio accesible por terceras personas o servicios. 
+En este caso el repositorio se conoce como *registry* en el contexto de Docker.
+
+Antes de hacer el proceso de subir el contenedor es necesario ponerle una marca en la cual se indica explicitamente el nombre o IP del *registry* donde va a ser publicado.
+A continuacion se pone una marca sobre el contenedor creado anteriormente
+
+```
+docker tag octaveimage 192.168.28.50:5000/octaveimage/uv
+```
+
+Para poner la marca a un contenedor se usa el subcomando `tag` de Docker.
+Luego se indica el nombre del contenedor a marcar (`octaveimage`) y finalmente
+se indica el IP y el puerto del servidor registry, acompanado de su nombre
+`octaveimage/uv`.
+
+Una vez se ha hecho la marca sobre la imagen del contenedor se procede a subir 
+la imagen al registry local.
+
+```
+docker push 192.168.28.50:5000/octaveimage/uv
+```
+
 
 ## Uso de contenedores
 
