@@ -103,33 +103,25 @@ HTCondor es una herramienta de software que permite la ejecucion de tareas (desa
 
 Asumiendo que se desea enviar la ejecucion del script visto en la [sección anterior](#local) se deben generar los siguientes archivos de texto.
 
+* Script que ejecuta el script `fitting.m`. A este archivo asígnele el nombre `fitting.sh`.
+
+```
+#!/bin/bash
+octave fitting.m
+```
+
+* A continuación se presenta el código de HTCondor para invocar la ejecución del contenedor de Octave con el script `fitting.sh`. A este archivo asígnele el nombre de [`fitting.condor`](fitting.condor).
+
 ```
 universe 	= docker
-docker_image	= 192.168.28.50:5000/demooctave/uv
+docker_image	= schickling/octave
 executable 	= /bin/bash
-arguments	= demooctave.sh 	
+arguments	= fitting.sh 	
 should_transfer_files   = YES
-transfer_input_files    = demooctave.sh,graphic.octave 
+transfer_input_files    = fitting.sh
 when_to_transfer_output = ON_EXIT
-output                  = out.$(Process)
-error                   = err.$(Process)
-log                     = log.$(Process)
+output                  = out.fitting.$(Process).txt
+error                   = err.fitting.$(Process).txt
+log                     = log.fitting.$(Process).txt
 queue 1
 ```
-
-Note que en este caso se va a ejecutar un archivo llamado `demooctave.sh`, el cual es un script en Bash. 
-Este es el contenido, para este ejemplo de dicho archivo.
-
-```
-#!/usr/bin/bash
-/usr/bin/env octave -qf $1 $2 $3 #/otro/graphic.octave 10 /otro/demo
-```
-
-<!--
-Referencias
-------
-(1) https://hub.docker.com/r/schickling/octave/ - Como correr un contenedor que mapea puertos de forma local
-(2) https://www.gnu.org/software/octave/doc/v4.0.3/Executable-Octave-Programs.html - Como se pasan argumentos a un script en Octave
-(3) https://docs.google.com/document/d/15aYKa8Hbml3aMGnGElHk2cVCgRzntRFKlMkOh0GMD9U/edit?usp=sharing
--->
-
