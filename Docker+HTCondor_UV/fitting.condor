@@ -1,0 +1,11 @@
+universe 	= docker
+docker_image	= schickling/octave
+executable 	= /bin/bash
+arguments	= fitting.sh 	
+should_transfer_files   = YES
+transfer_input_files    = fitting.sh
+when_to_transfer_output = ON_EXIT
+output                  = out.fitting.$(Process).txt
+error                   = err.fitting.$(Process).txt
+log                     = log.fitting.$(Process).txt
+queue 1
