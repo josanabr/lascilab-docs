@@ -6,14 +6,6 @@ En el presente archivo se describen pasos usados para la gestion y uso de
 contenedores en el centro de datos de alto rendimiento en la Universidad del 
 Valle.
 
-Los pasos para gestionar y usar contenedores son los siguientes:
-
-* Creacion de imágenes de contenedores
-* Subir imagen a *registry*
-* Uso de contenedores
-  - Local
-  - con HTCondor
-
 ## Introducción
 
 De hace un par de años para atrás en el cluster de la Universidad del Valle no se volvió a instalar software en los nodos de procesamiento del cluster.
