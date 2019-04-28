@@ -17,20 +17,23 @@ Los pasos para gestionar y usar contenedores son los siguientes:
 ## Introducción
 
 De hace un par de años para atrás en el cluster de la Universidad del Valle no se volvió a instalar software en los nodos de procesamiento del cluster.
-La razón por la cual no se volvió a instalar software es por la gran cantidad de conflictos que los nuevos paquetes de software generaban y dificultaban la normal operación de diferentes herramientas y aplicaciones que se usan por los académicos de la Universidad. 
-Para eliminar estos conflictos en el software se pensó en los contenedores ya que estos ofrecen una solución tecnológica donde se "empaquetan" aplicaciones en un "archivo" y en dicho "archivo" se encuentran todas las librerías, dependencias y scripts necesarios para la operación normal de la aplicación.
+La razón por la cual no se volvió a instalar software es por la gran cantidad de conflictos que los nuevos paquetes de software generaban y entonces dificultaban la normal operación de diferentes herramientas y aplicaciones que se usan por los académicos de la Universidad. 
+Para eliminar estos conflictos en el software se pensó en los contenedores ya que estos ofrecen una solución tecnológica donde se "empaquetan" aplicaciones en un "archivo" y en dicho "archivo" se encuentran todas las librerías, dependencias y scripts necesarios para la operación normal de la aplicaciones usadas por los investigadores..
 
 Una de las tecnologías más populares en el mundo de los contenedores es Docker.
 En Univalle usamos esta herramienta para llevar a cabo la ejecución de las aplicaciones científicas requeridas por los investigadores de la Universidad del Valle.
 
-En las siguientes secciones se dará una guía que muestra como usar la tecnología de contenedores para ser usados en el cluster de la Universidad del Valle.
+En las siguientes secciones se dará una guía que muestra como usar la tecnología ofrecida por Docker para ejecutar aplicaciones en el cluster de Univalle.
 
 ## Consiguiendo el contenedor
 
 Lo primero que ustede debe hacer es conseguir un contenedor que tenga desplegada la aplicación que usted desea usar. 
 [Docker Hub](https://hub.docker.com) es un repositorio donde cientos de miles de usuarios comparten diversas aplicaciones científicas y servicios de red de código abierto desplegadas en contenedores de Docker.
 
-Lo primero que usted debe hacer es conseguir el contenedor en *Docker Hub* que contenga
+Lo primero entonces que se debe hacer es conseguir el contenedor en **Docker Hub** que contenga la aplicación que usted requiere. 
+Para efectos de esta demostración se hará uso de la aplicación [Octave](https://www.gnu.org/software/octave/).
+
+Octave es un clon de MATLAB &copy;.
 
 Para la creación de imágenes de contenedores  existen muchos 
 La forma como se sugiere hacer la creacion de contenedores es a traves de un 
