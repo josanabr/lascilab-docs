@@ -110,7 +110,7 @@ Asumiendo que se desea enviar la ejecucion del script visto en la [sección ante
 octave fitting.m
 ```
 
-* A continuación se presenta el código de HTCondor para invocar la ejecución del contenedor de Octave con el script `fitting.sh`. A este archivo asígnele el nombre de [`fitting.condor`](fitting.condor).
+* A continuación se presenta el código de HTCondor para invocar la ejecución del contenedor de Octave con el script [`fitting.sh`](fitting.sh). A este archivo asígnele el nombre de [`fitting.condor`](fitting.condor).
 
 ```
 universe 	= docker
