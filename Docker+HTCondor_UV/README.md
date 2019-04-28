@@ -101,7 +101,11 @@ y =
 
 HTCondor es una herramienta de software que permite la ejecucion de tareas (desatendidas o no interactivas) en un ambiente de computacion oportunista.
 
-Asumiendo que se desea enviar la ejecucion del script visto en la [sección anterior](#local) se deben generar los siguientes archivos de texto.
+Asumiendo que se desea enviar la ejecucion del script visto en la [sección anterior](#local) se deben llevar a cabo los siguientes pasos:
+
+* Ingresar con su usuario a **lascilab.univalle.edu.co**.
+
+* Crear una carpeta, `fitting`, ingresar a ella.
 
 * Script que ejecuta el script `fitting.m`. A este archivo asígnele el nombre [`fitting.sh`](fitting.sh).
 
@@ -118,10 +122,18 @@ docker_image	= schickling/octave
 executable 	= /bin/bash
 arguments	= fitting.sh 	
 should_transfer_files   = YES
-transfer_input_files    = fitting.sh
+transfer_input_files    = fitting.sh,fitting.m
 when_to_transfer_output = ON_EXIT
 output                  = out.fitting.$(Process).txt
 error                   = err.fitting.$(Process).txt
 log                     = log.fitting.$(Process).txt
 queue 1
 ```
+
+* Para ejecutar la tarea se ejecuta el siguiente comando
+
+```
+condor_submit fitting.condor
+```
+
+* La salida de la ejecución del comando debe quedar en el archivo `out.fitting.0.txt`. 
