@@ -38,13 +38,62 @@ Existen muchos tutoriales de como llevar a cabo la creación de un nuevo contene
 ### Local
 
 Para efectos de la demostración usaremos un script en Octave muy sencillo y lo único que hace es una serie de operaciones sobre unos vectores. 
-A continuación se presenta el código del script llamado [`fitting.m`](fitting.m)
+Usando una terminal en su computador (en el cual debe estar instalado Docker) haga lo siguiente:
+
+* Edite un archivo y copie el código abajo. Guarde estas líneas en un archivo llamado [`fitting.m`](fitting.m)
 
 ```
 npts = 4
 x = [ 1:npts ]'/npts
 y = x + 0.1 * sin(10. * x)
 disp(y)
+```
+
+* Ahora ejecute este script usando el contenedor que tiene desplegado Octave. La forma como se ejecuta este script con la herramienta **Docker** es de la siguiente forma:
+
+```
+docker run --rm -v $(pwd):/workspace -w /workspace schickling/octave octave fitting.m
+```
+
+* Al ejecutar este script debe obtener una salida por pantalla similar a la sigiuente:
+
+```
+GNU Octave, version 3.6.2
+Copyright (C) 2012 John W. Eaton and others.
+This is free software; see the source code for copying conditions.
+There is ABSOLUTELY NO WARRANTY; not even for MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  For details, type `warranty'.
+
+Octave was configured for "x86_64-pc-linux-gnu".
+
+Additional information about Octave is available at http://www.octave.org.
+
+Please contribute if you find this software useful.
+For more information, visit http://www.octave.org/help-wanted.html
+
+Read http://www.octave.org/bugs.html to learn how to submit bug reports.
+
+For information about changes from previous versions, type `news'.
+
+npts =  4
+x =
+
+   0.25000
+   0.50000
+   0.75000
+   1.00000
+
+y =
+
+   0.30985
+   0.40411
+   0.84380
+   0.94560
+
+   0.30985
+   0.40411
+   0.84380
+   0.94560
 ```
 
 <!--
