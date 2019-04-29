@@ -15,7 +15,7 @@ Para eliminar estos conflictos en el software se pensó en los contenedores ya q
 Una de las tecnologías más populares en el mundo de los contenedores es Docker.
 En Univalle usamos esta herramienta para llevar a cabo la ejecución de las aplicaciones científicas requeridas por los investigadores de la Universidad del Valle.
 
-En las siguientes secciones se dará una guía que muestra como usar la tecnología ofrecida por Docker para ejecutar aplicaciones en el cluster de Univalle.
+**En las siguientes secciones se dará una guía que muestra como usar la tecnología ofrecida por Docker para ejecutar aplicaciones en el cluster de Univalle.**
 
 ## Consiguiendo el contenedor
 
@@ -27,7 +27,7 @@ Para efectos de esta demostración se hará uso de la aplicación [Octave](https
 
 Octave es un clon de MATLAB&copy; de código abierto y libre distribución.
 Esto quiere decir que muchos de los scripts escritos para MATLAB&copy; funcionarán en Octave excepto que el script de MATLAB haga uso de algún tipo particular de *toolbox* no disponible en Octave.
-Para este ejemplo se usará el contenedor de Octave que se encuentra en este [enlace](https://hub.docker.com/r/schickling/octave/).
+**Para este ejemplo se usará el contenedor de Octave que se encuentra en este [enlace](https://hub.docker.com/r/schickling/octave/).**
 
 En caso que la aplicación que usted requiere no se encuentra disponible en **Docker Hub** es una buena noticia porque podrá usted contribuir a la comunidad de Docker con un nuevo contenedor.
 Existen muchos tutoriales de como llevar a cabo la creación de un nuevo contenedor o imagen de Docker. 
@@ -137,3 +137,7 @@ condor_submit fitting.condor
 ```
 
 * La salida de la ejecución del comando debe quedar en el archivo `out.fitting.0.txt`. 
+
+## Video
+
+En este [enlace](https://youtu.be/9FJrceXlP2c) usted podrá encontrar un video ejemplificando lo descrito en este documento.
